@@ -3,18 +3,18 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site3',
-  tagline: 'Dinosaurs are cool',
+  title: 'PandraBox/FlatsPlus',
+  tagline: 'FlatsPlusはフラット族に「可愛い、便利」を追加するアセットです',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
+  // ここに本番サイトのURLを設定してください
   url: 'https://pandrabox.github.io', // ← あなたのGitHub PagesのURL
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // サイトが提供される /<baseUrl>/ パス名を設定してください
+  // GitHub Pagesでのデプロイの場合、多くは '/<projectName>/' です
   baseUrl: '/pandoc/', // ← あなたのリポジトリ名
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
+  // GitHub Pagesデプロイ用の設定
+  // GitHub Pagesを使わない場合は不要です
   organizationName: 'pandrabox', // ← あなたのGitHubユーザー名
   projectName: 'pandoc', // ← あなたのリポジトリ名
 
@@ -33,27 +33,15 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          // ここをあなたのリポジトリに変更してください
+          // "このページを編集"リンクを削除するにはこの行を削除してください
           editUrl:
             'https://github.com/pandrabox/pandoc/tree/main/',
+          routeBasePath: '/', // docsをルートパスに設定
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/pandrabox/pandoc/tree/main/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // blog機能を無効化
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -62,21 +50,19 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg',
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      image: 'img/SocialCard.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'PandraBox/FlatsPlus',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'PandraBox/FlatsPlusのロゴ',
+          src: 'img/FlatsPlus.png',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/pandrabox/pandoc',
             label: 'GitHub',
@@ -88,38 +74,8 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'リンク',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/pandrabox/pandoc',
@@ -127,7 +83,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} PandraBox/FlatsPlus. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

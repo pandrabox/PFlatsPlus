@@ -4,27 +4,82 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* ロゴから取り入れた配色をベースにしたカスタムテーマ */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* メインカラー: 青（ライトブルー） */
+  --ifm-color-primary: #3498db;
+  --ifm-color-primary-dark: #2980b9;
+  --ifm-color-primary-darker: #2573a7;
+  --ifm-color-primary-darkest: #1e6091;
+  --ifm-color-primary-light: #4aa3df;
+  --ifm-color-primary-lighter: #5faee3;
+  --ifm-color-primary-lightest: #75b9e7;
+  
+  /* アクセントカラー: オレンジ */
+  --ifm-color-accent: #f39c12;
+  --ifm-color-accent-dark: #e67e22;
+  --ifm-color-accent-darker: #d35400;
+  
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* カスタムカラー変数 */
+  --flats-blue: #3498db;
+  --flats-orange: #f39c12;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* ダークモード用の配色設定 */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* メインカラー: 青（ライトブルー）- ダークモードでも視認性の高い明るめの青 */
+  --ifm-color-primary: #5faee3;
+  --ifm-color-primary-dark: #4aa3df;
+  --ifm-color-primary-darker: #3498db;
+  --ifm-color-primary-darkest: #2980b9;
+  --ifm-color-primary-light: #75b9e7;
+  --ifm-color-primary-lighter: #8bc4eb;
+  --ifm-color-primary-lightest: #a1cfef;
+  
+  /* アクセントカラー: オレンジ - ダークモードでも視認性の高い明るめのオレンジ */
+  --ifm-color-accent: #f5b041;
+  --ifm-color-accent-dark: #f39c12;
+  --ifm-color-accent-darker: #e67e22;
+  
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* ナビゲーションバーの調整 */
+.navbar {
+  background-color: var(--ifm-color-primary);
+}
+
+.navbar__title, 
+.navbar__link, 
+.navbar__brand {
+  color: white;
+}
+
+/* フッターの調整 */
+.footer {
+  --ifm-footer-background-color: var(--ifm-color-primary-darkest);
+}
+
+/* アクセントカラーを使ったボタンスタイル */
+.button--accent {
+  background-color: var(--ifm-color-accent);
+  border-color: var(--ifm-color-accent);
+  color: white;
+}
+
+.button--accent:hover {
+  background-color: var(--ifm-color-accent-dark);
+  border-color: var(--ifm-color-accent-dark);
+}
+
+/* タイトルとサブタイトルのスタイル調整 */
+.hero__title {
+  color: var(--ifm-color-primary);
+}
+
+.hero__subtitle {
+  color: var(--ifm-color-accent);
 }
