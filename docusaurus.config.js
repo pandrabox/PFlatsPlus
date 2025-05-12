@@ -37,8 +37,8 @@ const config = {
           // "このページを編集"リンクを削除
           editUrl: undefined,
           routeBasePath: '/', // docsをルートパスに設定
-          // pandoc.mdをホームページとして設定
-          homePageId: 'pandoc',
+          // homePageId: 'pandoc', // 削除: Docusaurus v3では非対応
+          // pandoc.mdをホームページとして設定するには、docs/pandoc.mdのfrontmatterにslug: '/'を追加してください
         },
         blog: false, // blog機能を無効化
         theme: {
