@@ -21,9 +21,12 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - uses: actions/upload-pages-artifact@v2
+      # Updated to use actions/upload-artifact instead of upload-pages-artifact
+      - uses: actions/upload-artifact@v3
         with:
+          name: github-pages
           path: build
+          if-no-files-found: error
 
   deploy:
     name: Deploy to GitHub Pages
@@ -36,6 +39,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: github-pages
+          path: ./build
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
