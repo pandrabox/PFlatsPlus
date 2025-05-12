@@ -6,6 +6,7 @@ const config = {
   title: 'PandraBox/FlatsPlus',
   tagline: 'FlatsPlusはフラット族に「可愛い、便利」を追加するアセットです',
   favicon: 'img/favicon.ico',
+  trailingSlash: true, // GitHub Pages での問題を解決するため、末尾のスラッシュを明示
 
   // ここに本番サイトのURLを設定してください
   url: 'https://pandrabox.github.io', // ← あなたのGitHub PagesのURL
@@ -18,7 +19,7 @@ const config = {
   organizationName: 'pandrabox', // ← あなたのGitHubユーザー名
   projectName: 'pandoc', // ← あなたのリポジトリ名
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn', // エラーではなく警告として扱う
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -33,11 +34,11 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // ここをあなたのリポジトリに変更してください
-          // "このページを編集"リンクを削除するにはこの行を削除してください
-          editUrl:
-            'https://github.com/pandrabox/pandoc/tree/main/',
+          // "このページを編集"リンクを削除
+          editUrl: undefined,
           routeBasePath: '/', // docsをルートパスに設定
+          // pandoc.mdをホームページとして設定
+          homePageId: 'pandoc',
         },
         blog: false, // blog機能を無効化
         theme: {

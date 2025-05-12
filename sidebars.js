@@ -19,6 +19,11 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: 'doc',
+      id: 'pandoc',
+      label: 'pandoc',
+    },
+    {
+      type: 'doc',
       id: 'intro',
       label: 'はじめに',
     }
