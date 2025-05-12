@@ -23,9 +23,15 @@ const sidebars = {
       label: 'pandoc',
     },
     {
-      type: 'doc',
-      id: 'intro',
-      label: 'はじめに',
+      type: 'category',
+      label: 'FlatsPlus',
+      items: [
+        {
+          type: 'doc',
+          id: 'flatsplus/intro',
+          label: 'はじめに',
+        }
+      ],
     }
   ],
 
