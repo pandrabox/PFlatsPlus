@@ -6,6 +6,7 @@ Copilot用 ForCopilotフォルダの使い方・ルール
 - PowerShell（ps1）コマンド実行時は、&&（コマンド連結）が使えません。複数コマンドを実行したい場合は、一時的なps1ファイルをForCopilotに作成して実行してください。
 - pushを要求された場合は、ForCopilot内のpush用ps1（copilot-push.ps1）を使ってGitHubへpushします。
 - push用ps1は、コミットメッセージを引数で受け取り、確認なしですぐにpushします。
+- 文字化け対策として、copilot-push.ps1スクリプトではUTF-8エンコーディングを設定しています。
 - ForCopilotフォルダ内はCopilot専用です。他の用途のファイルは入れません。
 - テスト用・一時的なファイルはForCopilot/tmpフォルダ以下に作成・管理します。
 - 「tmpをクリア」という指示があった場合は、特別な理由がない限りtmpフォルダ内のファイルを全て削除します（README_tmp.txtも含む）。
