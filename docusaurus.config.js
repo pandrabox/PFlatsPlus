@@ -71,21 +71,21 @@ const config = {
           },
         ],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'リンク',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/pandrabox/pandoc',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} PandraBox/FlatsPlus. Built with Docusaurus.`,
-      },
+      // footer: {
+      //   style: 'dark',
+      //   links: [
+      //     {
+      //       title: 'リンク',
+      //       items: [
+      //         {
+      //           label: 'GitHub',
+      //           href: 'https://github.com/pandrabox/pandoc',
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   copyright: `Copyright © ${new Date().getFullYear()} PandraBox/FlatsPlus. Built with Docusaurus.`,
+      // },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,

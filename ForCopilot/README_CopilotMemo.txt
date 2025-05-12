@@ -45,3 +45,11 @@
      python スクリプト名.py > 出力ファイル.txt
      Get-Content 出力ファイル.txt
      ```
+
+## md_divider.py・md_divider_readme.mdについて追記
+- ForCopilot/md_divider/ に Markdown分割用ツール（md_divider.py）とその説明（md_divider_readme.md）を設置。
+- md_divider.pyは大きなMarkdownファイルをH1見出しごとに分割し、Docusaurus用フロントマター（title, sidebar_position）を自動付与。
+- H1見出しに「@フォルダ名@タイトル」形式を使うと、Outp配下の指定フォルダに分割ファイルを出力。
+- md_divider.pyのテスト時、入力ファイルが存在しているにもかかわらず「0行」と認識される現象が一度発生した。
+- この現象は再試行（同じコマンドを再度実行）することで解消し、正常に分割・出力された。
+- 一時的な環境要因やファイルアクセスのタイミングによる可能性があるため、同様の現象が起きた場合は再実行を試すこと。
