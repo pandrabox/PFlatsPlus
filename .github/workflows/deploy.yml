@@ -4,14 +4,16 @@ on:
   push:
     branches: [ main ]
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
+jobs:
+  docusaurus-deploy:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: git config
         run: |
           git config --global user.email "you@example.com"
@@ -20,3 +22,19 @@ jobs:
       - run: yarn deploy
         env:
           GIT_USER: ${{ github.actor }}:${{ github.token }}
+
+  github-pages:
+    runs-on: ubuntu-latest
+    needs: docusaurus-deploy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: yarn install
+      - run: yarn build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+      - uses: actions/deploy-pages@v4
+        id: deployment
