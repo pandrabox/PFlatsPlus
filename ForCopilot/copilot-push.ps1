@@ -1,14 +1,14 @@
 # GitHubへの変更をプッシュする簡易スクリプト（Copilot Agent用）
 # PowerShellで実行するスクリプト - 確認なしですぐにプッシュします
 
-# エンコーディングをUTF-8に設定（文字化け対策）
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-$OutputEncoding = [System.Text.Encoding]::UTF8
-
 param (
     [Parameter(Mandatory=$true)]
     [string]$CommitMessage = "Copilot Agentによる自動更新"
 )
+
+# エンコーディングをUTF-8に設定（文字化け対策）
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 
 # カレントディレクトリをDocusaurusプロジェクトに設定
 $projectPath = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
