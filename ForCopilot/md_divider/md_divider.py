@@ -1,19 +1,14 @@
 """
 Markdown Divider - Docusaurus用分割＆サイドバー自動修正
-
-- 入力: docs/original.md に固定
-- docs/divided フォルダを毎回全削除してから出力
-- 出力: docs/divided/配下に分割mdを生成
-- サイドバー(sidebars.js)を自動修正
-- slug, sidebar_position, title などfrontmatterを自動付与
 """
 
+# BASEをリポジトリルートに修正
 import os
 import re
 import shutil
 
-# 入力・出力パス
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE: このスクリプトの親の親（docusaurusプロジェクトルート）
+BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 INPUT_PATH = os.path.join(BASE, 'docs', 'original.md')
 DIVIDED_DIR = os.path.join(BASE, 'docs', 'divided')
 SIDEBAR_PATH = os.path.join(BASE, 'sidebars.js')
@@ -66,9 +61,11 @@ for folder, title, content in sections:
         sidebar_key = 'root'
     file_name = f"{file_index:03d}.md"
     out_path = os.path.join(out_dir, file_name)
-    # slug生成
-    if sidebar_key == 'root':
-        slug = '/' if file_index == 1 else f'/divided/{file_name[:-3]}'
+    # slug生成: 最初の分割ファイル（file_index==1）は必ず'/'
+    if file_index == 1:
+        slug = '/'
+    elif sidebar_key == 'root':
+        slug = f'/divided/{file_name[:-3]}'
     else:
         slug = f'/divided/{sidebar_key}/{file_name[:-3]}'
     # frontmatter
