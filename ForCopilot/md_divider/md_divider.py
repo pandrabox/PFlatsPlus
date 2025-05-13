@@ -1,107 +1,106 @@
 """
-Markdown Divider - Markdownファイルを分割するツール
+Markdown Divider - Docusaurus用分割＆サイドバー自動修正
 
-使い方:
-python md_divider.py <入力Markdownファイルパス>
-
-機能:
-- 大きなMarkdownファイルを複数の小さなファイルに分割する
-- H1見出し(#で始まる行)ごとに分割
-- Docusaurusのフロントマターを各ファイルに追加
-- @フォルダ名@タイトル形式でフォルダ指定可能
-- 連番(001.md, 002.md, ...)のファイルに出力
+- 入力: docs/original.md に固定
+- docs/divided フォルダを毎回全削除してから出力
+- 出力: docs/divided/配下に分割mdを生成
+- サイドバー(sidebars.js)を自動修正
+- slug, sidebar_position, title などfrontmatterを自動付与
 """
 
 import os
-import sys
 import re
+import shutil
 
-def main():
-    try:
-        if len(sys.argv) < 2 or not os.path.exists(sys.argv[1]):
-            print("mdファイルをパラメータとして指定してください。", flush=True)
-            print("使用方法: python md_divider.py <Markdownファイルパス>", flush=True)
-            return
+# 入力・出力パス
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+INPUT_PATH = os.path.join(BASE, 'docs', 'original.md')
+DIVIDED_DIR = os.path.join(BASE, 'docs', 'divided')
+SIDEBAR_PATH = os.path.join(BASE, 'sidebars.js')
 
-        input_path = sys.argv[1]
-        print(f"入力ファイル: {input_path}", flush=True)
-        
-        out_dir = os.path.join(os.path.dirname(input_path), "Outp")
-        os.makedirs(out_dir, exist_ok=True)
-        print(f"出力ディレクトリ: {out_dir}", flush=True)
+# docs/dividedを全削除
+if os.path.exists(DIVIDED_DIR):
+    shutil.rmtree(DIVIDED_DIR)
+os.makedirs(DIVIDED_DIR, exist_ok=True)
 
-        # UTF-8でファイルを読み込み、BOMを適切に処理
-        with open(input_path, 'rb') as f:
-            content = f.read()
-            if content.startswith(b'\xef\xbb\xbf'):  # BOM付きUTF-8
-                content = content[3:]
-                print("BOM付きUTF-8ファイルを検出しました。BOMを取り除きます。", flush=True)
-            
-            # バイナリデータをUTF-8としてデコード
-            text = content.decode('utf-8', errors='replace')
-            lines = text.splitlines()
-        
-        print(f"入力ファイルを読み込みました: {len(lines)}行", flush=True)
+# original.md読み込み
+with open(INPUT_PATH, 'r', encoding='utf-8') as f:
+    lines = f.read().splitlines()
 
-        sections = []
-        current_section = None
-        current_title = None
-        current_folder = None
+sections = []
+current_section = None
+current_title = None
+current_folder = None
 
-        for line in lines:
-            if line.startswith('# '):
-                if current_section is not None and current_title is not None:
-                    sections.append((current_folder, current_title, current_section))
-
-                # H1行から@...@を抽出
-                match = re.match(r'^#\s*@([^@]+)@(.+)$', line)
-                if match:
-                    current_folder = match.group(1).strip()
-                    current_title = match.group(2).strip()
-                    # H1行から@...@を除去
-                    current_section = ["# " + current_title]
-                else:
-                    current_folder = None
-                    current_title = line[2:].strip()
-                    current_section = [line]
-            else:
-                if current_section is not None:
-                    current_section.append(line)
-
-        # 最後のセクションを追加
+for line in lines:
+    if line.startswith('# '):
         if current_section is not None and current_title is not None:
             sections.append((current_folder, current_title, current_section))
+        match = re.match(r'^#\s*@([^@]+)@(.+)$', line)
+        if match:
+            current_folder = match.group(1).strip()
+            current_title = match.group(2).strip()
+            current_section = ['# ' + current_title]
+        else:
+            current_folder = None
+            current_title = line[2:].strip()
+            current_section = [line]
+    else:
+        if current_section is not None:
+            current_section.append(line)
+if current_section is not None and current_title is not None:
+    sections.append((current_folder, current_title, current_section))
 
-        file_index = 1
-        for folder, title, content in sections:
-            output_dir = out_dir
-            if folder:
-                # フォルダ名のスラッシュをOSに合わせたパス区切り文字に変換
-                safe_folder = folder.replace('/', os.path.sep)
-                output_dir = os.path.join(out_dir, safe_folder)
-                os.makedirs(output_dir, exist_ok=True)
-            
-            # 連番ファイル名（0埋め3桁）
-            file_name = f"{file_index:03d}.md"
-            out_path = os.path.join(output_dir, file_name)
+# 分割ファイル出力
+sidebar_structure = {}
+file_index = 1
+for folder, title, content in sections:
+    out_dir = DIVIDED_DIR
+    sidebar_key = None
+    if folder:
+        safe_folder = folder.replace('/', os.path.sep)
+        out_dir = os.path.join(DIVIDED_DIR, safe_folder)
+        os.makedirs(out_dir, exist_ok=True)
+        sidebar_key = safe_folder
+    else:
+        sidebar_key = 'root'
+    file_name = f"{file_index:03d}.md"
+    out_path = os.path.join(out_dir, file_name)
+    # slug生成
+    if sidebar_key == 'root':
+        slug = '/' if file_index == 1 else f'/divided/{file_name[:-3]}'
+    else:
+        slug = f'/divided/{sidebar_key}/{file_name[:-3]}'
+    # frontmatter
+    header = f"---\ntitle: {title}\nsidebar_position: {file_index}\nslug: {slug}\n---\n"
+    with open(out_path, 'w', encoding='utf-8') as out_file:
+        out_file.write(header)
+        out_file.write('\n'.join(content))
+        out_file.write('\n')
+    # サイドバー構造
+    if sidebar_key not in sidebar_structure:
+        sidebar_structure[sidebar_key] = []
+    sidebar_structure[sidebar_key].append((file_name, title))
+    file_index += 1
 
-            # Docusaurusフロントマターを作成
-            header = f"---\ntitle: {title}\nsidebar_position: {file_index}\n---\n"
-            
-            # ヘッダ + 本文を書き込み
-            with open(out_path, 'w', encoding='utf-8') as out_file:
-                out_file.write(header)
-                out_file.write('\n'.join(content))
-                out_file.write('\n')
-            
-            file_index += 1
+# sidebars.js自動生成
+sidebar_lines = [
+    '// 自動生成: md_divider.py',
+    'const sidebars = {',
+    '  dividedSidebar: [',
+]
+for key, items in sidebar_structure.items():
+    if key == 'root':
+        for file_name, title in items:
+            sidebar_lines.append(f"    'divided/{file_name[:-3]}', // {title}")
+    else:
+        sidebar_lines.append(f"    {{ type: 'category', label: '{key}', collapsed: false, items: [")
+        for file_name, title in items:
+            sidebar_lines.append(f"      'divided/{key}/{file_name[:-3]}', // {title}")
+        sidebar_lines.append('    ] },')
+sidebar_lines.append('  ],')
+sidebar_lines.append('};\nexport default sidebars;')
+with open(SIDEBAR_PATH, 'w', encoding='utf-8') as f:
+    f.write('\n'.join(sidebar_lines))
 
-        print(f"分割完了: {len(sections)}個のファイルを{out_dir}以下に出力しました。", flush=True)
-        
-    except Exception as e:
-        print(f"エラーが発生しました: {e}", flush=True)
-        import traceback
-        print(traceback.format_exc(), flush=True)
-
-if __name__ == "__main__":
-    main()
+print(f"分割・サイドバー自動生成完了: {file_index-1}ファイル", flush=True)
