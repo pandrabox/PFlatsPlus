@@ -28,4 +28,6 @@ git push
 
 # 完了メッセージ
 Write-Host "Done!" -ForegroundColor Green
-Write-Host 'Commit message: ' $CommitMessage -ForegroundColor Green
+Write-Host "Commit message: " $CommitMessage -ForegroundColor Green
+Write-Host "Actionの結果確認用コマンド：python ForCopilot/github_actions_status.py"
+
