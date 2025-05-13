@@ -9,9 +9,9 @@ const config = {
   trailingSlash: true, 
 
   url: 'https://pandrabox.github.io', 
-  baseUrl: '/pandoc/', 
+  baseUrl: '/PFlatsPlus/', 
   organizationName: 'pandrabox', 
-  projectName: 'pandoc', 
+  projectName: 'PFlatsPlus', 
   onBrokenLinks: 'warn', 
   onBrokenMarkdownLinks: 'warn',
 
