@@ -30,7 +30,9 @@ current_folder = None
 for line in lines:
     if line.startswith('# '):
         if current_section is not None and current_title is not None:
-            sections.append((current_folder, current_title, current_section))
+            # 画像パスの変換: ../static/img/ または static/img/ → /img/
+            converted_section = [re.sub(r'(!\[.*?\]\()\.*?static/img/', r'![](/img/', l) for l in current_section]
+            sections.append((current_folder, current_title, converted_section))
         match = re.match(r'^#\s*@([^@]+)@(.+)$', line)
         if match:
             current_folder = match.group(1).strip()
@@ -44,7 +46,8 @@ for line in lines:
         if current_section is not None:
             current_section.append(line)
 if current_section is not None and current_title is not None:
-    sections.append((current_folder, current_title, current_section))
+    converted_section = [re.sub(r'(!\[.*?\]\()\.*?static/img/', r'![](/img/', l) for l in current_section]
+    sections.append((current_folder, current_title, converted_section))
 
 # 分割ファイル出力
 sidebar_structure = {}
