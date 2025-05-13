@@ -55,7 +55,7 @@ const config = {
         },
         items: [
           {
-            href: 'https://github.com/pandrabox/pandoc',
+            href: 'https://github.com/pandrabox/PFlatsPlus',
             label: 'GitHub',
             position: 'right',
           },

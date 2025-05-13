@@ -39,4 +39,4 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
       - name: Show GitHub Pages URL in summary
-        run: echo "[サイトはこちら](https://pandrabox.github.io/pandoc/)" >> $GITHUB_STEP_SUMMARY
+        run: echo "[サイトはこちら](https://pandrabox.github.io/PFlatsPlus/)" >> $GITHUB_STEP_SUMMARY

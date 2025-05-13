@@ -11,7 +11,7 @@ with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
 owner_match = re.search(r"organizationName:\s*'([^']+)'", config_js)
 repo_match = re.search(r"projectName:\s*'([^']+)'", config_js)
 OWNER = owner_match.group(1) if owner_match else "pandrabox"
-REPO = repo_match.group(1) if repo_match else "pandoc"
+REPO = repo_match.group(1) if repo_match else "PFlatsPlus"
 print(f"認識したOWNER: {OWNER}")
 print(f"認識したREPO: {REPO}")
 
