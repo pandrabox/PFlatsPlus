@@ -57,7 +57,7 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 - ![](../static/img/icos/Sleep_Lock2.png) Lock:今の姿勢 … 全身を現状の姿勢でロック
 
 ## ![](../static/img/icos/Clip.png)PoseClipper
-本機能はCHILD WITCH様開発PoseClipperの移植版です
+本機能は[CHILD WITCH](https://childwitch.booth.pm/)様開発[PoseClipper](https://booth.pm/ja/items/6181080)の移植版です
 - ![](../static/img/icos/back_line%20(4).png) Reset … PoseClipperを解除
 - ![](../static/img/icos/earth_fill.png) WorldFixed … 体の位置を固定
 - ![](../static/img/icos/walk_fill%20(5).png) AllClip … 全身を固定
@@ -204,7 +204,7 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
   - 引き続き問題が起こる場合は、サポート窓口までご相談ください。
 
 ## 動けなくなった
-- 睡眠、PoseClipperには自分のアバターが動けなくなるギミックが含まれており、操作できなくなることがあります。
+- 睡眠、[PoseClipper](https://booth.pm/ja/items/6181080)には自分のアバターが動けなくなるギミックが含まれており、操作できなくなることがあります。
   - もし原因が分かれば、その機能をOFFにしてください。
 - 分からなければ、「アバターリセット」を試してください。問題が解決するはずです。
 
@@ -227,7 +227,7 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 # ライセンス
 
 - [MITライセンス](https://github.com/pandrabox/DressingTable?tab=MIT-1-ov-file)によります。
-- PoseClipperについてはフォルダ内同梱のライセンスをご確認ください。
+- [PoseClipper](https://booth.pm/ja/items/6181080)についてはフォルダ内同梱のライセンスをご確認ください。
 
 # 動作環境
 
