@@ -71,6 +71,11 @@ const config = {
           },
         ],
       },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: false, // サイドバーを最初から全展開
+        },
+      },
       // footer: {
       //   style: 'dark',
       //   links: [
