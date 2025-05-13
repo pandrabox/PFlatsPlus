@@ -69,6 +69,10 @@ const config = {
         },
         items: [
           {
+            type: 'localeDropdown',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/pandrabox/pandoc',
             label: 'GitHub',
             position: 'right',
