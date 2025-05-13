@@ -1,14 +1,15 @@
 // 自動生成: md_divider.py
 const sidebars = {
   dividedSidebar: [
-    { type: 'category', label: '簡単ガイド', collapsed: false, items: [
-      'divided/簡単ガイド/001', // 概要
-      'divided/簡単ガイド/002', // 導入方法
-      'divided/簡単ガイド/003', // 代表的な機能
-    ] },
-    { type: 'category', label: '詳細ガイド', collapsed: false, items: [
-      'divided/詳細ガイド/004', // test
-    ] },
+    'divided/001', // 概要
+    'divided/002', // 導入方法
+    'divided/003', // 代表的な機能
+    'divided/004', // Unity設定
+    'divided/005', // 困った時は
+    'divided/006', // アンインストール方法
+    'divided/007', // ライセンス
+    'divided/008', // 動作環境
+    'divided/009', // サポート窓口
   ],
 };
 export default sidebars;

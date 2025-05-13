@@ -27,11 +27,14 @@ current_section = None
 current_title = None
 current_folder = None
 
+def convert_img_path(line):
+    # Markdown画像リンクのパス部分のみ /img/ から始まる形に変換
+    return re.sub(r'(!\[.*?\]\()((?:\.\./)?static/img/)', r'\1/img/', line)
+
 for line in lines:
     if line.startswith('# '):
         if current_section is not None and current_title is not None:
-            # 画像パスの変換: ../static/img/ または static/img/ → /img/
-            converted_section = [re.sub(r'(!\[.*?\]\()\.*?static/img/', r'![](/img/', l) for l in current_section]
+            converted_section = [convert_img_path(l) for l in current_section]
             sections.append((current_folder, current_title, converted_section))
         match = re.match(r'^#\s*@([^@]+)@(.+)$', line)
         if match:
@@ -46,7 +49,7 @@ for line in lines:
         if current_section is not None:
             current_section.append(line)
 if current_section is not None and current_title is not None:
-    converted_section = [re.sub(r'(!\[.*?\]\()\.*?static/img/', r'![](/img/', l) for l in current_section]
+    converted_section = [convert_img_path(l) for l in current_section]
     sections.append((current_folder, current_title, converted_section))
 
 # 分割ファイル出力
@@ -67,10 +70,8 @@ for folder, title, content in sections:
     # slug生成: 最初の分割ファイル（file_index==1）は必ず'/'
     if file_index == 1:
         slug = '/'
-    elif sidebar_key == 'root':
-        slug = f'/divided/{file_name[:-3]}'
     else:
-        slug = f'/divided/{sidebar_key}/{file_name[:-3]}'
+        slug = f'/{file_index:03d}'
     # frontmatter
     header = f"---\ntitle: {title}\nsidebar_position: {file_index}\nslug: {slug}\n---\n"
     with open(out_path, 'w', encoding='utf-8') as out_file:
