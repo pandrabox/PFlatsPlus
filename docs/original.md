@@ -231,7 +231,7 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 
 # 動作環境
 
-次の環境で動作を確認しています
+次の環境で動作します
 - VRC 
   - PC
   - Mobile(Quest)
@@ -254,6 +254,11 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
   - [【オリジナル3Dモデル】フェル（Fel）](https://booth.pm/ja/items/4656076)
   - [【オリジナル3Dモデル】ヘオン（Heon）](https://booth.pm/ja/items/4849773)
   - [【オリジナル3Dモデル】キューフ（Kewf）](https://booth.pm/ja/items/5040290)
+- 言語
+  - メイン言語
+    - ja
+  - 対応言語（Unity・ExpressionMenu・GUIDE）（機械翻訳）
+    - en, ko, zh-CN, zh-TW
 
 # サポート窓口
 
