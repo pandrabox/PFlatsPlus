@@ -11,22 +11,16 @@
 - そのままGitHub Pagesで静的サイトとして即公開できる
 - 「最小の手間で、常に最新・最適なドキュメントサイトを維持できる」ワークフローを実現
 
-
-## ビルドを実行　命令の定義
-- Copilotは「ビルドを実行」という命令を受けたら次を行います
-  - この文書(Copilot_RULES.md)を再確認する
-  - 「Divideを実行」する（docsへ日本語分をまず作成する）
-  - 翻訳に関する文書(TranslationInstructions.md)を確認する
-  - 「ローカライズを実行」する(i18nフォルダへ)
-  - Divideをした結果の数が日本語版と同じであることを確認する。違うなら落ち着いてリトライする
-  - すべて正しくできたらpushをする
-
-
 ## Divideを実行 命令の定義
 - Copilotは「Divideを実行」という命令を受けたら次を行います
   - この文書(Copilot_RULES.md)を再確認する
   - md_dividerを使ってdocs/original.mdからdocs/dividedへの分割を実行する
   - pushはしません
+
+## pushを実行 命令の定義
+- Copilotは「pushを実行」という命令を受けたら次を行います
+  - copilot-push.ps1を使ってpushを行う
+  - コミットメッセージは適当に作る
 
 ---
 
