@@ -1,6 +1,6 @@
 # Overview
 
-FlatsPlus adds **cuteness** and **convenience** to the Flat tribe (Flat, Komodo, Fel, Heon, Kyuf).
+FlatsPlus adds **cuteness** and **convenience** to the Flat tribe (Flat, Komodo, Fel, Heon, Kewf).
 ![Flats Plus Social Card](/img/SocialCard.jpg)
 
 # Installation

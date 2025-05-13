@@ -24,11 +24,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'ja',
-    locales: ['ja', 'en'],
-    localeConfigs: {
-      ja: { label: '日本語' },
-      en: { label: 'English' }
-    }
+    locales: ['ja']
   },
 
   presets: [
@@ -69,8 +65,26 @@ const config = {
         },
         items: [
           {
-            type: 'localeDropdown',
+            label: 'Translate',
             position: 'right',
+            items: [
+              {
+                label: 'Google Translate (English)',
+                href: 'https://translate.google.com/translate?hl=en&sl=ja&u=https://pandrabox.github.io/pandoc/',
+              },
+              {
+                label: 'Google Translate (한국어)',
+                href: 'https://translate.google.com/translate?hl=ko&sl=ja&u=https://pandrabox.github.io/pandoc/',
+              },
+              {
+                label: 'Google Translate (简体中文)',
+                href: 'https://translate.google.com/translate?hl=zh-CN&sl=ja&u=https://pandrabox.github.io/pandoc/',
+              },
+              {
+                label: 'Google Translate (繁體中文)',
+                href: 'https://translate.google.com/translate?hl=zh-TW&sl=ja&u=https://pandrabox.github.io/pandoc/',
+              },
+            ],
           },
           {
             href: 'https://github.com/pandrabox/pandoc',
