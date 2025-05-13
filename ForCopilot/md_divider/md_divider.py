@@ -2,15 +2,21 @@
 Markdown Divider - Docusaurus用分割＆サイドバー自動修正
 """
 
-# BASEをリポジトリルートに修正
 import os
 import re
 import shutil
+import sys
 
 # BASE: このスクリプトの親の親（docusaurusプロジェクトルート）
 BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-INPUT_PATH = os.path.join(BASE, 'docs', 'original.md')
-DIVIDED_DIR = os.path.join(BASE, 'docs', 'divided')
+
+# コマンドライン引数で入力ファイルと出力ディレクトリを指定可能に
+if len(sys.argv) >= 3:
+    INPUT_PATH = os.path.abspath(sys.argv[1])
+    DIVIDED_DIR = os.path.abspath(sys.argv[2])
+else:
+    INPUT_PATH = os.path.join(BASE, 'docs', 'original.md')
+    DIVIDED_DIR = os.path.join(BASE, 'docs', 'divided')
 SIDEBAR_PATH = os.path.join(BASE, 'sidebars.js')
 
 # docs/dividedを全削除
