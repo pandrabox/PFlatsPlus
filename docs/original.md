@@ -25,6 +25,23 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 - しっぽ … 揺れる
 - クリッピングキャンセラー … 近づいたとき、消えない
 
+## ![](../static/img/icos/Sleep.png)睡眠
+- ![](../static/img/icos/Sleep_SW.png) 有効 … 睡眠モードにする
+- ![](../static/img/icos/FootLock.png) 移動ロック … 移動できないようにする
+- ![](../static/img/icos/Foot_Height.png) 高さ … 足(モーションロック時は全身)の高さを変更
+- ![](../static/img/icos/Sleep_Lock1.png) Lock:モーション … 全身を既定の睡眠姿勢でロック
+- ![](../static/img/icos/Sleep_Lock2.png) Lock:今の姿勢 … 全身を現状の姿勢でロック
+
+## ![](../static/img/icos/Tail.png)しっぽ
+- ![](../static/img/icos/Tail_Size.png) 大きさ … しっぽの大きさを変更
+- ![](../static/img/icos/Tail_Swing.png) 揺らす … しっぽを揺らす
+
+## ![](../static/img/icos/Pen.png)ペン
+- ![](../static/img/icos/Pen_SW.png) 描画 … ペンを有効にする。右手をFistにすると書くことができる
+- ![](../static/img/icos/Erace.png) 削除 … 消しゴムを有効にする。右手をFistにすると消すことができる
+- ![](../static/img/icos/EraceAll.png) クリア … 全ての描画を消す
+- ![](../static/img/icos/PenColor.png) 色 … ペンの色を変える
+
 ## ![](../static/img/icos/Carry_Rings.png)他者移動
 - ![](../static/img/icos/Carry_GrayRing1.png) 灰ゲート召喚 … 他者がテレポートできる灰色のゲートをつくる。自分は使えない。※他者には赤く見える
 - ![](../static/img/icos/Carry_GrayRing2.png) 灰ゲート有効 … 灰色のゲートの表示状態を切り替える
@@ -34,43 +51,6 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 - ![](../static/img/icos/Carry_Carry.png) おんぶ … 他者が背中に乗れる
 - ![](../static/img/icos/Distance.png) 距離調整 … 抱っこ・おんぶの距離を調整する
 - ![](../static/img/icos/Rotation.png) 角度調整 … 灰ゲート・抱っこ・おんぶの角度を調整する
-
-## ![](../static/img/icos/GUIDE.png)ガイド
-- ![](../static/img/icos/GUIDE_SW.png) 有効 … ガイドの表示を切り替える
-- ![](../static/img/icos/GUIDE_Size.png) サイズ … ガイド文字サイズを変更する
-
-## ![](../static/img/icos/Dance.png)ダンス設定
-- ![](../static/img/icos/DANCE_Mode0.png) モード:OFF … ダンス機能をOFF
-- ![](../static/img/icos/DANCE_Mode1.png) モード:通常 … 多くのダンスを自動で検出し、誤検出が少ない
-- ![](../static/img/icos/DANCE_Mode2.png) モード:パワフル … ほぼすべてのダンスを自動で検出するが、誤検出することがある
-- ![](../static/img/icos/FX.png) FX有効 … ダンス中、FXをONにする（ONを推奨。OFFにすると、より表情が動きやすくなるが、衣装などで同期の問題が発生する）
-
-## ![](../static/img/icos/Tail.png)しっぽ
-- ![](../static/img/icos/Tail_Size.png) 大きさ … しっぽの大きさを変更
-- ![](../static/img/icos/Tail_Swing.png) 揺らす … しっぽを揺らす
-
-## ![](../static/img/icos/Sleep.png)睡眠
-- ![](../static/img/icos/Sleep_SW.png) 有効 … 睡眠モードにする
-- ![](../static/img/icos/FootLock.png) 移動ロック … 移動できないようにする
-- ![](../static/img/icos/Foot_Height.png) 高さ … 足(モーションロック時は全身)の高さを変更
-- ![](../static/img/icos/Sleep_Lock1.png) Lock:モーション … 全身を既定の睡眠姿勢でロック
-- ![](../static/img/icos/Sleep_Lock2.png) Lock:今の姿勢 … 全身を現状の姿勢でロック
-
-## ![](../static/img/icos/Clip.png)PoseClipper
-本機能は[CHILD WITCH](https://childwitch.booth.pm/)様開発[PoseClipper](https://booth.pm/ja/items/6181080)の移植版です
-- ![](../static/img/icos/back_line%20(4).png) Reset … PoseClipperを解除
-- ![](../static/img/icos/earth_fill.png) WorldFixed … 体の位置を固定
-- ![](../static/img/icos/walk_fill%20(5).png) AllClip … 全身を固定
-- ![](../static/img/icos/head_line%20(1).png) PartsClip … 部位ごとに固定
-- ![](../static/img/icos/body_line%20(1).png) Detail(Body) … 体の詳細ごとに固定
-- ![](../static/img/icos/hand_line%20(1).png) Detail(Arms) … 手の詳細ごとに固定
-- ![](../static/img/icos/foot_line%20(1).png) Detail(Legs … 脚の詳細ごとに固定
-
-## ![](../static/img/icos/Pen.png)ペン
-- ![](../static/img/icos/Pen_SW.png) 描画 … ペンを有効にする。右手をFistにすると書くことができる
-- ![](../static/img/icos/Erace.png) 削除 … 消しゴムを有効にする。右手をFistにすると消すことができる
-- ![](../static/img/icos/EraceAll.png) クリア … 全ての描画を消す
-- ![](../static/img/icos/PenColor.png) 色 … ペンの色を変える
 
 ## ![](../static/img/icos/Move.png)自身移動
 - ![](../static/img/icos/MoveSw.png)飛行＆高速移動 … 空を飛んだり、高速移動したりする。移動速度が0のときは飛行。ジャンプボタンを連打で飛ぶことができる。移動速度を上げると高速移動。空中ジャンプで前に向かって高速で移動する
@@ -86,6 +66,16 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 - ![](../static/img/icos/EmoLockOthers.png) その他 … その他の表情
 - ![](../static/img/icos/EmoLockReset.png) リセット … 表情固定の設定をリセット
 
+## ![](../static/img/icos/Dance.png)ダンス設定
+- ![](../static/img/icos/DANCE_Mode0.png) モード:OFF … ダンス機能をOFF
+- ![](../static/img/icos/DANCE_Mode1.png) モード:通常 … 多くのダンスを自動で検出し、誤検出が少ない
+- ![](../static/img/icos/DANCE_Mode2.png) モード:パワフル … ほぼすべてのダンスを自動で検出するが、誤検出することがある
+- ![](../static/img/icos/FX.png) FX有効 … ダンス中、FXをONにする（ONを推奨。OFFにすると、より表情が動きやすくなるが、衣装などで同期の問題が発生する）
+
+## ![](../static/img/icos/GUIDE.png)ガイド
+- ![](../static/img/icos/GUIDE_SW.png) 有効 … ガイドの表示を切り替える
+- ![](../static/img/icos/GUIDE_Size.png) サイズ … ガイド文字サイズを変更する
+
 ## ![](../static/img/icos/Explore_LightStr.png) アイコン
 各種アイコンを頭上に表示する
 
@@ -98,6 +88,16 @@ FlatsPlusはフラット族(フラット・コモド・フェル・ヘオン・�
 - ![](../static/img/icos/Explore_Route.png) 軌跡 … 自分の通ったルートを描画する
 - ![](../static/img/icos/Erace.png) 軌跡削除 … 軌跡を消す
 - ![](../static/img/icos/PenColor.png) 色 … 軌跡の色を変更
+
+## ![](../static/img/icos/Clip.png)PoseClipper
+本機能は[CHILD WITCH](https://childwitch.booth.pm/)様開発[PoseClipper](https://booth.pm/ja/items/6181080)の移植版です
+- ![](../static/img/icos/back_line%20(4).png) Reset … PoseClipperを解除
+- ![](../static/img/icos/earth_fill.png) WorldFixed … 体の位置を固定
+- ![](../static/img/icos/walk_fill%20(5).png) AllClip … 全身を固定
+- ![](../static/img/icos/head_line%20(1).png) PartsClip … 部位ごとに固定
+- ![](../static/img/icos/body_line%20(1).png) Detail(Body) … 体の詳細ごとに固定
+- ![](../static/img/icos/hand_line%20(1).png) Detail(Arms) … 手の詳細ごとに固定
+- ![](../static/img/icos/foot_line%20(1).png) Detail(Legs … 脚の詳細ごとに固定
 
 # Unity設定
 ## 概要
